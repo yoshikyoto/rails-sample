@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   def user
     id = params[:id].to_i
-    render json: {'user_id' => id, 'name' => 'dummy'}
+    user = User.find(id)
+    render json: {'user_id' => user.id, 'name' => user.name}
   end
 end
